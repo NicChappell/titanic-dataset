@@ -30,8 +30,6 @@ function App() {
     const [withSpouse, setWithSpouse] = useState(false)
     const [withSiblings, setWithSiblings] = useState(false)
     const [transmitting, setTransmitting] = useState(false)
-    console.log(prediction)
-    console.log(transmitting)
 
     const makePrediction = e => {
         // create payload

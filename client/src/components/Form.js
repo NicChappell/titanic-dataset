@@ -109,7 +109,7 @@ const Form = (props) => {
                         <select
                             className="browser-default"
                             name="gender"
-                            onChange={setGender}
+                            onChange={e => setGender(e.target.value)}
                             value={gender}
                         >
                             <option value="gender_male">Male</option>

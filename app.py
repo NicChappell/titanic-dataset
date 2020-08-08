@@ -169,15 +169,15 @@ def predict():
     # handle age feature
     age = jsonData['age']
 
-    if age < 12:
+    if int(age) < 12:
         age_category = 'age_categories_child'
-    elif age < 20:
+    elif int(age) < 20:
         age_category = 'age_categories_teenager'
-    elif age < 30:
+    elif int(age) < 30:
         age_category = 'age_categories_young_adult'
-    elif age < 45:
+    elif int(age) < 45:
         age_category = 'age_categories_adult'
-    elif age < 60:
+    elif int(age) < 60:
         age_category = 'age_categories_middle_age'
     else:
         age_category = 'age_categories_senior'
@@ -187,15 +187,15 @@ def predict():
     # handle fare feature
     fare = jsonData['fare']
 
-    if fare < 7:
+    if int(fare) < 7:
         fare_category = 'fare_categories_0'
-    elif fare < 14:
+    elif int(fare) < 14:
         fare_category = 'fare_categories_1'
-    elif fare < 35:
+    elif int(fare) < 35:
         fare_category = 'fare_categories_2'
-    elif fare < 70:
+    elif int(fare) < 70:
         fare_category = 'fare_categories_3'
-    elif fare < 140:
+    elif int(fare) < 140:
         fare_category = 'fare_categories_4'
     else:
         fare_category = 'fare_categories_5'
