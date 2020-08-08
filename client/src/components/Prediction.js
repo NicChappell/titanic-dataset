@@ -32,6 +32,7 @@ const Prediction = ({ prediction }) => {
             <div className="col s12 l8">
                 <div className="intro">
                     <h1>Would you survive?</h1>
+                    <p>The sinking of the Titanic is one of the most infamous shipwrecks in history.</p>
                     <p>On April 15, 1912, during her maiden voyage, the widely considered “unsinkable” RMS Titanic sank
                     after colliding with an iceberg. Unfortunately, there weren’t enough lifeboats for everyone onboard,
                     resulting in the death of 1,502 out of 2,224 passengers and crew.</p>

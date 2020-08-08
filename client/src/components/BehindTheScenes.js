@@ -21,38 +21,18 @@ const BehindTheScenes = () => {
                     <div>
                         <div>
                             <div>
-                                <div id="title" className="scrollspy">
-                                    <h1>Predicting the Survival of Titanic Passengers</h1>
-                                    <p className="caption">The sinking of the Titanic is one of the most infamous shipwrecks
-                                        in history.</p>
-                                    <p className="caption">On April 15, 1912, during her maiden voyage, the widely
-                                        considered “unsinkable” RMS Titanic sank
-                                        after colliding with an iceberg. Unfortunately, there weren’t enough lifeboats
-                                        for everyone
-                                        onboard, resulting in the death of 1502 out of 2224 passengers and crew.</p>
-                                    <p className="caption">While there was some element of luck involved in surviving, it
-                                        seems some groups of people were
-                                        more likely to survive than others.</p>
-                                    <p className="caption">This tutorial will explore the dataset from <a
-                                            href="https://www.kaggle.com/c/titanic/">Kaggle's
-                                            Titanic machine learning competition</a> and create a trained machine
-                                        learning model that will be used in a web app to make survival predictions based
-                                        on a user's input.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
                                 <div id="explore" className="scrollspy">
                                     <h1>Part I: Explore the Data</h1>
+                                    <p>This tutorial will explore the dataset from <a href="https://www.kaggle.com/c/titanic/">Kaggle's Titanic machine learning competition</a> and
+                                        create a trained machine learning model that will be used in a web app to make survival predictions based on a user's input.</p>
                                     <h4>Import dependencies</h4>
                                 </div>
                                 <div>In [1]:</div>
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`# data visualization
+                                            <pre><code className="language-python">
+                                                {`# data visualization
 %matplotlib inline
 from matplotlib import pyplot as plt
 import seaborn as sns
@@ -75,7 +55,7 @@ from sklearn.svm import LinearSVC
 
 # serializing
 import pickle`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -94,13 +74,13 @@ import pickle`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`# import training data
+                                            <pre><code className="language-python">
+                                                {`# import training data
 train = pd.read_csv('./input/train.csv')
 
 # # import test data
 # test = pd.read_csv('./input/test.csv')`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -119,9 +99,9 @@ train = pd.read_csv('./input/train.csv')
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`list(train)`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`list(train)`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -131,9 +111,8 @@ train = pd.read_csv('./input/train.csv')
                                     <div className="output">
                                         <div>Out [3]:</div>
                                         <div>
-<pre><code className="language-bash">
-'
-{`['PassengerId',
+                                            <pre><code className="language-bash">
+                                                {`['PassengerId',
 'Survived',
 'Pclass',
 'Name',
@@ -145,7 +124,7 @@ train = pd.read_csv('./input/train.csv')
 'Fare',
 'Cabin',
 'Embarked']`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -224,9 +203,9 @@ train = pd.read_csv('./input/train.csv')
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train.info()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train.info()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -235,8 +214,8 @@ train = pd.read_csv('./input/train.csv')
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`<class 'pandas.core.frame.DataFrame'>
+                                            <pre><code className="language-python">
+                                                {`<class 'pandas.core.frame.DataFrame'>
 RangeIndex: 891 entries, 0 to 890
 Data columns (total 12 columns):
 PassengerId    891 non-null int64
@@ -253,7 +232,7 @@ Cabin          204 non-null object
 Embarked       889 non-null object
 dtypes: float64(2), int64(5), object(5)
 memory usage: 83.7+ KB`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -262,10 +241,10 @@ memory usage: 83.7+ KB`}
                         <div>
                             <div>
                                 <div>
-                                    <p className="caption">The training dataset has <strong>891 examples</strong> and
+                                    <p>The training dataset has <strong>891 examples</strong> and
                                         <strong>11 features</strong> plus the
                                         <strong>1 target variable</strong> 'Survived'.</p>
-                                    <p className="caption">5 of the features are objects<br />
+                                    <p>5 of the features are objects<br />
                                         4 of the features plus the 1 target variable are integers<br />
                                         2 of the features are floats</p>
                                 </div>
@@ -284,9 +263,9 @@ memory usage: 83.7+ KB`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train.describe()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train.describe()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -402,18 +381,18 @@ memory usage: 83.7+ KB`}
                         <div>
                             <div>
                                 <div>
-                                    <p className="caption">We can see that 38% of the training set survived the Titanic.
-                                        This is roughly inline with the actual
+                                    <p>We can see that 38% of the training set survived the Titanic.
+                                    This is roughly inline with the actual
                                         survival rate of 32%.</p>
-                                    <p className="caption">We can also make other other early observations such as the 'Age'
-                                        feature's values range from 0.4 (ages
-                                        less than 1 are represented as a fractional value in the dataset) to 80, the
-                                        'Fare' feature's maximum
-                                        value is $512.33 but the average value is only $32.20 (and the 75th
-                                        percentile value is only $31.00).
-                                        In addition there are 177 fewer values for the 'Age' feature than there are any
-                                        other feature, so we can
-                                        already identify that the dataset contains missing values that we will need to
+                                    <p>We can also make other other early observations such as the 'Age'
+                                    feature's values range from 0.4 (ages
+                                    less than 1 are represented as a fractional value in the dataset) to 80, the
+                                    'Fare' feature's maximum
+                                    value is $512.33 but the average value is only $32.20 (and the 75th
+                                    percentile value is only $31.00).
+                                    In addition there are 177 fewer values for the 'Age' feature than there are any
+                                    other feature, so we can
+                                    already identify that the dataset contains missing values that we will need to
                                         deal with.</p>
                                 </div>
                             </div>
@@ -431,9 +410,9 @@ memory usage: 83.7+ KB`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train.head(10)`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train.head(10)`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -613,21 +592,21 @@ memory usage: 83.7+ KB`}
                         <div>
                             <div>
                                 <div>
-                                    <p className="caption">Most machine learning algorithms require numerical input and
-                                        output variables. (This limitation may not
-                                        be strictly enforced by the machine learning algorithms themselves, but is
-                                        generally a more efficient
+                                    <p>Most machine learning algorithms require numerical input and
+                                    output variables. (This limitation may not
+                                    be strictly enforced by the machine learning algorithms themselves, but is
+                                    generally a more efficient
                                         implementation of the algorithms.)</p>
-                                    <p className="caption">From this preview table we can see that we will need to convert
-                                        several categorical features into numeric
-                                        values (e.g. 'Embarked', 'Sex', 'Pclass'). We can also observe several features
-                                        contain continuous data
-                                        with a wide range of values (e.g. 'Age', 'Fare') that we'll want to transform
-                                        into binned categorical data
-                                        to equalize their importance. Furthermore, we can detect additional features
-                                        that contain missing values
+                                    <p>From this preview table we can see that we will need to convert
+                                    several categorical features into numeric
+                                    values (e.g. 'Embarked', 'Sex', 'Pclass'). We can also observe several features
+                                    contain continuous data
+                                    with a wide range of values (e.g. 'Age', 'Fare') that we'll want to transform
+                                    into binned categorical data
+                                    to equalize their importance. Furthermore, we can detect additional features
+                                    that contain missing values
                                         (e.g. 'Cabin') which we will also need to need to deal with.</p>
-                                    <p className="caption">Let's figure out which features contain missing data.</p>
+                                    <p>Let's figure out which features contain missing data.</p>
                                 </div>
                             </div>
                         </div>
@@ -644,8 +623,8 @@ memory usage: 83.7+ KB`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`# calculate the sum of missing values for each column
+                                            <pre><code className="language-python">
+                                                {`# calculate the sum of missing values for each column
 total = train.isnull().sum().sort_values(ascending=False)
 
 # calculate the percentage of missing values for each column
@@ -656,7 +635,7 @@ missing_data = pd.concat([total, percent], axis=1, keys=['# Missing', '% Missing
 
 # preview the dataframe
 missing_data.head(12)`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -747,15 +726,15 @@ missing_data.head(12)`}
                         <div>
                             <div>
                                 <div>
-                                    <p className="caption">The 'Embarked' feature has 2 missing values, 0.2% of the total
-                                        examples. We can drop those entries without having a significant impact on
-                                        our model's accuracy to predict
+                                    <p>The 'Embarked' feature has 2 missing values, 0.2% of the total
+                                    examples. We can drop those entries without having a significant impact on
+                                    our model's accuracy to predict
                                         results.</p>
-                                    <p className="caption">The 'Age' feature has 177 missing values, 19.9% of the total
-                                        examples. We will transform this feature by binning the continues values
-                                        into defined cohorts, including a
+                                    <p>The 'Age' feature has 177 missing values, 19.9% of the total
+                                    examples. We will transform this feature by binning the continues values
+                                    into defined cohorts, including a
                                         'missing' cohort, of categorical values.</p>
-                                    <p className="caption">The 'Cabin' feature has 687 missing values,
+                                    <p>The 'Cabin' feature has 687 missing values,
                                         <em><strong>77.7%</strong></em> of the total examples. We will need to take a
                                         closer look at this feature to determine
                                         if it's possible to use this
@@ -767,16 +746,16 @@ missing_data.head(12)`}
                             <div>
                                 <div>
                                     <h2>Feature selection</h2>
-                                    <p className="caption">Let's review our feature set to understand how each feature
-                                        impacts survival. The goal is to determine
-                                        which features we should include in our machine learning model and which
-                                        features we can drop. In some
-                                        cases we'll need to preprocess the feature data to better understand its meaning
-                                        before deciding how to
-                                        proceed. (We'll also do more preprocessing before fitting the data to our
+                                    <p>Let's review our feature set to understand how each feature
+                                    impacts survival. The goal is to determine
+                                    which features we should include in our machine learning model and which
+                                    features we can drop. In some
+                                    cases we'll need to preprocess the feature data to better understand its meaning
+                                    before deciding how to
+                                    proceed. (We'll also do more preprocessing before fitting the data to our
                                         model.)</p>
-                                    <p className="caption">We'll generate some quick statistics and a plot simple bar chart
-                                        to visualize the relationship between
+                                    <p>We'll generate some quick statistics and a plot simple bar chart
+                                    to visualize the relationship between
                                         each feature and our target variable 'Survival'. We can use the <a
                                             href="https://seaborn.pydata.org/index.html">seaborn</a> library (a data
                                         visualization library based on
@@ -790,8 +769,8 @@ missing_data.head(12)`}
                             <div>
                                 <div>
                                     <h4>Embarked</h4>
-                                    <p className="caption">We'll start with the 'Embarked' feature because we want to drop
-                                        the 2 rows with missing data before doing
+                                    <p>We'll start with the 'Embarked' feature because we want to drop
+                                    the 2 rows with missing data before doing
                                         anything else.</p>
                                 </div>
                             </div>
@@ -802,13 +781,13 @@ missing_data.head(12)`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`# recreate the dataframe after dropping rows with null 'Embarked' values
+                                            <pre><code className="language-python">
+                                                {`# recreate the dataframe after dropping rows with null 'Embarked' values
 train = train[pd.notnull(train['Embarked'])]
 
 # preview the updated dataframe
 train.head()`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -918,8 +897,8 @@ train.head()`}
                         <div>
                             <div>
                                 <div>
-                                    <p className="caption">Previewing the dataframe doesn't verify that the rows with
-                                        missing 'Embarked' values have been dropped,
+                                    <p>Previewing the dataframe doesn't verify that the rows with
+                                    missing 'Embarked' values have been dropped,
                                         but we can do a quick calculations to confirm.</p>
                                 </div>
                             </div>
@@ -930,8 +909,8 @@ train.head()`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`# calculate the sum of missing values in the 'Embarked' column
+                                            <pre><code className="language-python">
+                                                {`# calculate the sum of missing values in the 'Embarked' column
 total = train['Embarked'].isnull().sum()
 
 # count the number of rows in the 'Embarked' column
@@ -945,7 +924,7 @@ missing_data = pd.DataFrame([[total, percent]], columns=['# Missing', '% Missing
 
 # preview the dataframe
 missing_data.head()`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -984,10 +963,10 @@ missing_data.head()`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`# describe the data
+                                            <pre><code className="language-python">
+                                                {`# describe the data
 train['Embarked'].describe()`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -997,13 +976,13 @@ train['Embarked'].describe()`}
                                     <div className="output">
                                         <div>Out [10]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`count     889
+                                            <pre><code className="language-bash">
+                                                {`count     889
 unique      3
 top         S
 freq      644
 Name: Embarked, dtype: object`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -1015,10 +994,10 @@ Name: Embarked, dtype: object`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`# count the unique values
+                                            <pre><code className="language-python">
+                                                {`# count the unique values
 train['Embarked'].value_counts()`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -1028,12 +1007,12 @@ train['Embarked'].value_counts()`}
                                     <div className="output">
                                         <div>Out [11]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`S    644
+                                            <pre><code className="language-bash">
+                                                {`S    644
 C    168
 Q     77
 Name: Embarked, dtype: int64`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -1045,10 +1024,10 @@ Name: Embarked, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`# plot the feature data as a bar chart
+                                            <pre><code className="language-python">
+                                                {`# plot the feature data as a bar chart
 sns.barplot(x='Embarked', y='Survived', data=train)`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -1058,9 +1037,9 @@ sns.barplot(x='Embarked', y='Survived', data=train)`}
                                     <div className="output">
                                         <div>Out [12]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`<matplotlib.axes._subplots.AxesSubplot at 0x12a537898>`}
-</code></pre>
+                                            <pre><code className="language-bash">
+                                                {`<matplotlib.axes._subplots.AxesSubplot at 0x12a537898>`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                     <div>
@@ -1074,7 +1053,7 @@ sns.barplot(x='Embarked', y='Survived', data=train)`}
                         <div>
                             <div>
                                 <div>
-                                    <p className="caption">Before moving on to the next feature let's convert the 'Embarked'
+                                    <p>Before moving on to the next feature let's convert the 'Embarked'
                                         feature values to lowercase</p>
                                 </div>
                             </div>
@@ -1085,13 +1064,13 @@ sns.barplot(x='Embarked', y='Survived', data=train)`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`# convert strings in the series to lowercase
+                                            <pre><code className="language-python">
+                                                {`# convert strings in the series to lowercase
 train['Embarked'] = train['Embarked'].str.lower()
 
 # count the unique values
 train['Embarked'].value_counts()`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -1101,12 +1080,12 @@ train['Embarked'].value_counts()`}
                                     <div className="output">
                                         <div>Out [13]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`s    644
+                                            <pre><code className="language-bash">
+                                                {`s    644
 c    168
 q     77
 Name: Embarked, dtype: int64`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -1116,7 +1095,7 @@ Name: Embarked, dtype: int64`}
                             <div>
                                 <div>
                                     <h4>Cabin</h4>
-                                    <p className="caption">Next let's take a look at the 'Cabin' feature and see what to do
+                                    <p>Next let's take a look at the 'Cabin' feature and see what to do
                                         about its missing values.</p>
                                 </div>
                             </div>
@@ -1127,9 +1106,9 @@ Name: Embarked, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['Cabin'].describe()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['Cabin'].describe()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -1139,13 +1118,13 @@ Name: Embarked, dtype: int64`}
                                     <div className="output">
                                         <div>Out [14]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`count             202
+                                            <pre><code className="language-bash">
+                                                {`count             202
 unique            146
 top       C23 C25 C27
 freq                4
 Name: Cabin, dtype: object`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -1157,9 +1136,9 @@ Name: Cabin, dtype: object`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['Cabin'].value_counts()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['Cabin'].value_counts()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -1169,8 +1148,8 @@ Name: Cabin, dtype: object`}
                                     <div className="output">
                                         <div>Out [15]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`C23 C25 C27    4
+                                            <pre><code className="language-bash">
+                                                {`C23 C25 C27    4
 G6             4
 B96 B98        4
 F33            3
@@ -1182,7 +1161,7 @@ D28            1
 E46            1
 E68            1
 Name: Cabin, Length: 146, dtype: int64`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -1194,9 +1173,9 @@ Name: Cabin, Length: 146, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`sns.barplot(x='Cabin', y='Survived', data=train)`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`sns.barplot(x='Cabin', y='Survived', data=train)`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -1206,9 +1185,9 @@ Name: Cabin, Length: 146, dtype: int64`}
                                     <div className="output">
                                         <div>Out [16]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`<matplotlib.axes._subplots.AxesSubplot at 0x12c6dcf98>`}
-</code></pre>
+                                            <pre><code className="language-bash">
+                                                {`<matplotlib.axes._subplots.AxesSubplot at 0x12c6dcf98>`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                     <div>
@@ -1222,14 +1201,14 @@ Name: Cabin, Length: 146, dtype: int64`}
                         <div>
                             <div>
                                 <div>
-                                    <p className="caption">Given the number of missing values, number of unique values and
-                                        the categorical nature of this feature we
-                                        could be tempted to drop it from our dataset. However, if we take a closer look
-                                        at the data we see that
-                                        there is a letter in each cabin (e.g. "C123") that corresponds to a deck on the
-                                        titanic. If we review a
-                                        cutaway diagram of the tianic (see below) it would be interesting to see whether
-                                        or not deck location has
+                                    <p>Given the number of missing values, number of unique values and
+                                    the categorical nature of this feature we
+                                    could be tempted to drop it from our dataset. However, if we take a closer look
+                                    at the data we see that
+                                    there is a letter in each cabin (e.g. "C123") that corresponds to a deck on the
+                                    titanic. If we review a
+                                    cutaway diagram of the tianic (see below) it would be interesting to see whether
+                                    or not deck location has
                                         an impact on survival.</p>
                                 </div>
                             </div>
@@ -1237,7 +1216,7 @@ Name: Cabin, Length: 146, dtype: int64`}
                         <div>
                             <div>
                                 <div>
-                                    <p className="caption">
+                                    <p>
                                         <img alt="" className="cutaway" src={cutaway} />
                                     </p>
                                 </div>
@@ -1246,8 +1225,8 @@ Name: Cabin, Length: 146, dtype: int64`}
                         <div>
                             <div>
                                 <div>
-                                    <p className="caption">Let's extract the deck identifier from the 'Cabin' feature and
-                                        use this value to create a new feature
+                                    <p>Let's extract the deck identifier from the 'Cabin' feature and
+                                    use this value to create a new feature
                                         we'll call 'Deck'.</p>
                                 </div>
                             </div>
@@ -1258,8 +1237,8 @@ Name: Cabin, Length: 146, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`# create a new 'Deck' column in our dataframe using regex to extract the first letter from the 'Cabin' column
+                                            <pre><code className="language-python">
+                                                {`# create a new 'Deck' column in our dataframe using regex to extract the first letter from the 'Cabin' column
 train['Deck'] = train.Cabin.str.extract('([a-zA-Z]+)', expand=False).str.lower()
 
 # replace null values in the 'Deck' column
@@ -1267,7 +1246,7 @@ train['Deck'] = train['Deck'].fillna('unavailable')
 
 # preview the updated dataframe
 train.head()`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -1386,9 +1365,9 @@ train.head()`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['Deck'].describe()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['Deck'].describe()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -1398,13 +1377,13 @@ train.head()`}
                                     <div className="output">
                                         <div>Out [18]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`count             889
+                                            <pre><code className="language-bash">
+                                                {`count             889
 unique              9
 top       unavailable
 freq              687
 Name: Deck, dtype: object`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -1416,9 +1395,9 @@ Name: Deck, dtype: object`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['Deck'].value_counts()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['Deck'].value_counts()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -1428,8 +1407,8 @@ Name: Deck, dtype: object`}
                                     <div className="output">
                                         <div>Out [19]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`unavailable    687
+                                            <pre><code className="language-bash">
+                                                {`unavailable    687
 c               59
 b               45
 d               33
@@ -1439,7 +1418,7 @@ f               13
 g                4
 t                1
 Name: Deck, dtype: int64`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -1451,9 +1430,9 @@ Name: Deck, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`sns.barplot(x='Deck', y='Survived', data=train, order=['a', 'b', 'c', 'd', 'e', 'f', 'g', 'unavailable'])`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`sns.barplot(x='Deck', y='Survived', data=train, order=['a', 'b', 'c', 'd', 'e', 'f', 'g', 'unavailable'])`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -1463,9 +1442,9 @@ Name: Deck, dtype: int64`}
                                     <div className="output">
                                         <div>Out [20]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`<matplotlib.axes._subplots.AxesSubplot at 0x12cc3e400>`}
-</code></pre>
+                                            <pre><code className="language-bash">
+                                                {`<matplotlib.axes._subplots.AxesSubplot at 0x12cc3e400>`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                     <div>
@@ -1479,8 +1458,8 @@ Name: Deck, dtype: int64`}
                         <div>
                             <div>
                                 <div>
-                                    <p className="caption">This looks much better and is something we can use. Let's go
-                                        ahead and drop the old 'Cabin' feature from
+                                    <p>This looks much better and is something we can use. Let's go
+                                    ahead and drop the old 'Cabin' feature from
                                         our dataset.</p>
                                 </div>
                             </div>
@@ -1491,13 +1470,13 @@ Name: Deck, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`# drop the 'Cabin' column from the dataframe
+                                            <pre><code className="language-python">
+                                                {`# drop the 'Cabin' column from the dataframe
 train = train.drop(columns=['Cabin'])
 
 # preview the updated dataframe
 train.head()`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -1614,7 +1593,7 @@ train.head()`}
                             <div>
                                 <div>
                                     <h4>Age</h4>
-                                    <p className="caption">While we're dealing with missing values let's take a look at the
+                                    <p>While we're dealing with missing values let's take a look at the
                                         'Age' feature next.</p>
                                 </div>
                             </div>
@@ -1625,9 +1604,9 @@ train.head()`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['Age'].describe()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['Age'].describe()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -1637,8 +1616,8 @@ train.head()`}
                                     <div className="output">
                                         <div>Out [22]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`count    712.000000
+                                            <pre><code className="language-bash">
+                                                {`count    712.000000
 mean      29.642093
 std       14.492933
 min        0.420000
@@ -1647,7 +1626,7 @@ min        0.420000
 75%       38.000000
 max       80.000000
 Name: Age, dtype: float64`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -1659,9 +1638,9 @@ Name: Age, dtype: float64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['Age'].value_counts()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['Age'].value_counts()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -1671,8 +1650,8 @@ Name: Age, dtype: float64`}
                                     <div className="output">
                                         <div>Out [23]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`24.00    30
+                                            <pre><code className="language-bash">
+                                                {`24.00    30
 22.00    27
 18.00    26
 28.00    25
@@ -1684,7 +1663,7 @@ Name: Age, dtype: float64`}
 23.50     1
 0.42      1
 Name: Age, Length: 88, dtype: int64`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -1696,9 +1675,9 @@ Name: Age, Length: 88, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`sns.barplot(x='Age', y='Survived', data=train)`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`sns.barplot(x='Age', y='Survived', data=train)`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -1708,9 +1687,9 @@ Name: Age, Length: 88, dtype: int64`}
                                     <div className="output">
                                         <div>Out [24]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`<matplotlib.axes._subplots.AxesSubplot at 0x12ccb0710>`}
-</code></pre>
+                                            <pre><code className="language-bash">
+                                                {`<matplotlib.axes._subplots.AxesSubplot at 0x12ccb0710>`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                     <div>
@@ -1724,14 +1703,14 @@ Name: Age, Length: 88, dtype: int64`}
                         <div>
                             <div>
                                 <div>
-                                    <p className="caption">We see a similar issue with the 'Age' feature that we saw with
-                                        the 'Cabin' feature; a significant number
-                                        of missing values and unique values. In addition, as our bar chart illustrates,
-                                        there is a wide range of
-                                        values that are unequally distributed. We'll also need deal with the missing
-                                        values. We can solve all
-                                        these problems by binning the continuous values, including the missing values,
-                                        from the 'Age' feature and
+                                    <p>We see a similar issue with the 'Age' feature that we saw with
+                                    the 'Cabin' feature; a significant number
+                                    of missing values and unique values. In addition, as our bar chart illustrates,
+                                    there is a wide range of
+                                    values that are unequally distributed. We'll also need deal with the missing
+                                    values. We can solve all
+                                    these problems by binning the continuous values, including the missing values,
+                                    from the 'Age' feature and
                                         create a new feature we'll call 'AgeCategory'</p>
                                 </div>
                             </div>
@@ -1742,8 +1721,8 @@ Name: Age, Length: 88, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`# define bins and labels
+                                            <pre><code className="language-python">
+                                                {`# define bins and labels
 bin_ranges = [-1, 0, 12, 20, 30, 45, 60, 80]
 range_labels = ['missing', 'child', 'teenager', 'young_adult', 'adult', 'middle_age', 'senior']
 
@@ -1758,7 +1737,7 @@ train['AgeCategories'] = pd.cut(train['Age'], bin_ranges, labels=range_labels)
 
 # preview the updated dataframe
 train.head()`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -1883,9 +1862,9 @@ train.head()`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['AgeCategories'].describe()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['AgeCategories'].describe()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -1895,13 +1874,13 @@ train.head()`}
                                     <div className="output">
                                         <div>Out [26]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`count             889
+                                            <pre><code className="language-bash">
+                                                {`count             889
 unique              7
 top       young_adult
 freq              231
 Name: AgeCategories, dtype: object`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -1913,9 +1892,9 @@ Name: AgeCategories, dtype: object`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['AgeCategories'].value_counts()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['AgeCategories'].value_counts()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -1925,8 +1904,8 @@ Name: AgeCategories, dtype: object`}
                                     <div className="output">
                                         <div>Out [27]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`young_adult    231
+                                            <pre><code className="language-bash">
+                                                {`young_adult    231
 adult          201
 missing        184
 teenager       111
@@ -1934,7 +1913,7 @@ middle_age      79
 child           62
 senior          21
 Name: AgeCategories, dtype: int64`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -1946,9 +1925,9 @@ Name: AgeCategories, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`sns.barplot(x='AgeCategories', y='Survived', data=train)`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`sns.barplot(x='AgeCategories', y='Survived', data=train)`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -1958,9 +1937,9 @@ Name: AgeCategories, dtype: int64`}
                                     <div className="output">
                                         <div>Out [28]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`<matplotlib.axes._subplots.AxesSubplot at 0x12d002438>`}
-</code></pre>
+                                            <pre><code className="language-bash">
+                                                {`<matplotlib.axes._subplots.AxesSubplot at 0x12d002438>`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                     <div>
@@ -1974,10 +1953,10 @@ Name: AgeCategories, dtype: int64`}
                         <div>
                             <div>
                                 <div>
-                                    <p className="caption">This is a big improvement. It might be nice if our bins were more
-                                        equal, but I think the age ranges we
-                                        defined for our bins make sense in the context of a person's age. Now that we
-                                        have our new categorical
+                                    <p>This is a big improvement. It might be nice if our bins were more
+                                    equal, but I think the age ranges we
+                                    defined for our bins make sense in the context of a person's age. Now that we
+                                    have our new categorical
                                         feature we can drop the existing 'Age' feature from our dataset.</p>
                                 </div>
                             </div>
@@ -1988,13 +1967,13 @@ Name: AgeCategories, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`# drop the 'Age' column from the dataframe
+                                            <pre><code className="language-python">
+                                                {`# drop the 'Age' column from the dataframe
 train = train.drop(columns=['Age'])
 
 # preview the updated dataframe
 train.head()`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -2111,8 +2090,8 @@ train.head()`}
                             <div>
                                 <div>
                                     <h4>Fare</h4>
-                                    <p className="caption">While we're converting continuous values into binned categorical
-                                        values we should go ahead and look at
+                                    <p>While we're converting continuous values into binned categorical
+                                    values we should go ahead and look at
                                         the 'Fare' feature next.</p>
                                 </div>
                             </div>
@@ -2123,9 +2102,9 @@ train.head()`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['Fare'].describe()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['Fare'].describe()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -2135,8 +2114,8 @@ train.head()`}
                                     <div className="output">
                                         <div>Out [30]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`count    889.000000
+                                            <pre><code className="language-bash">
+                                                {`count    889.000000
 mean      32.096681
 std       49.697504
 min        0.000000
@@ -2145,7 +2124,7 @@ min        0.000000
 75%       31.000000
 max      512.329200
 Name: Fare, dtype: float64`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -2157,9 +2136,9 @@ Name: Fare, dtype: float64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['Fare'].value_counts()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['Fare'].value_counts()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -2169,8 +2148,8 @@ Name: Fare, dtype: float64`}
                                     <div className="output">
                                         <div>Out [31]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`8.0500     43
+                                            <pre><code className="language-bash">
+                                                {`8.0500     43
 13.0000    42
 7.8958     38
 7.7500     34
@@ -2182,7 +2161,7 @@ Name: Fare, dtype: float64`}
 15.0500     1
 8.6833      1
 Name: Fare, Length: 247, dtype: int64`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -2194,9 +2173,9 @@ Name: Fare, Length: 247, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`sns.barplot(x='Fare', y='Survived', data=train)`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`sns.barplot(x='Fare', y='Survived', data=train)`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -2206,9 +2185,9 @@ Name: Fare, Length: 247, dtype: int64`}
                                     <div className="output">
                                         <div>Out [32]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`<matplotlib.axes._subplots.AxesSubplot at 0x12d11efd0>`}
-</code></pre>
+                                            <pre><code className="language-bash">
+                                                {`<matplotlib.axes._subplots.AxesSubplot at 0x12d11efd0>`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                     <div>
@@ -2222,12 +2201,12 @@ Name: Fare, Length: 247, dtype: int64`}
                         <div>
                             <div>
                                 <div>
-                                    <p className="caption">The bad news is that it looks like our 'Fare' data has some
-                                        similar issues that our 'Age' data had; a
-                                        wide range of values that are unequally distributed and a significant number of
-                                        unique values. The good
-                                        news is that because the 'Fare' data is similar to the 'Age' data we can give
-                                        this feature a similar
+                                    <p>The bad news is that it looks like our 'Fare' data has some
+                                    similar issues that our 'Age' data had; a
+                                    wide range of values that are unequally distributed and a significant number of
+                                    unique values. The good
+                                    news is that because the 'Fare' data is similar to the 'Age' data we can give
+                                    this feature a similar
                                         transformation without too much effort.</p>
                                 </div>
                             </div>
@@ -2238,8 +2217,8 @@ Name: Fare, Length: 247, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`# define bins and labels
+                                            <pre><code className="language-python">
+                                                {`# define bins and labels
 bin_ranges = [-1, 0, 7, 14, 35, 70, 140, 525]
 range_labels = ['Missing', '0', '1', '2', '3', '4', '5']
 
@@ -2254,7 +2233,7 @@ train['FareCategories'] = pd.cut(train['Fare'], bin_ranges, labels=range_labels)
 
 # preview the updated dataframe
 train.head()`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -2379,9 +2358,9 @@ train.head()`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['FareCategories'].describe()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['FareCategories'].describe()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -2391,13 +2370,13 @@ train.head()`}
                                     <div className="output">
                                         <div>Out [34]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`count     889
+                                            <pre><code className="language-bash">
+                                                {`count     889
 unique      7
 top         2
 freq      240
 Name: FareCategories, dtype: object`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -2409,9 +2388,9 @@ Name: FareCategories, dtype: object`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['FareCategories'].value_counts()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['FareCategories'].value_counts()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -2421,8 +2400,8 @@ Name: FareCategories, dtype: object`}
                                     <div className="output">
                                         <div>Out [35]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`2          240
+                                            <pre><code className="language-bash">
+                                                {`2          240
 0          226
 1          216
 3           89
@@ -2430,7 +2409,7 @@ Name: FareCategories, dtype: object`}
 5           31
 Missing     15
 Name: FareCategories, dtype: int64`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -2442,9 +2421,9 @@ Name: FareCategories, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`sns.barplot(x='FareCategories', y='Survived', data=train)`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`sns.barplot(x='FareCategories', y='Survived', data=train)`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -2454,9 +2433,9 @@ Name: FareCategories, dtype: int64`}
                                     <div className="output">
                                         <div>Out [36]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`<matplotlib.axes._subplots.AxesSubplot at 0x12d999898>`}
-</code></pre>
+                                            <pre><code className="language-bash">
+                                                {`<matplotlib.axes._subplots.AxesSubplot at 0x12d999898>`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                     <div>
@@ -2470,10 +2449,10 @@ Name: FareCategories, dtype: int64`}
                         <div>
                             <div>
                                 <div>
-                                    <p className="caption">Another big improvement, and another situation where it might be
-                                        nice if our bins were more equal, but
-                                        again I think the ranges we defined for our bins make sense given the context.
-                                        Let's drop the existing
+                                    <p>Another big improvement, and another situation where it might be
+                                    nice if our bins were more equal, but
+                                    again I think the ranges we defined for our bins make sense given the context.
+                                    Let's drop the existing
                                         'Fare' feature from our dataset.</p>
                                 </div>
                             </div>
@@ -2484,13 +2463,13 @@ Name: FareCategories, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`# drop the 'Fare' column from the dataframe
+                                            <pre><code className="language-python">
+                                                {`# drop the 'Fare' column from the dataframe
 train = train.drop(columns=['Fare'])
 
 # preview the updated dataframe
 train.head()`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -2607,8 +2586,8 @@ train.head()`}
                             <div>
                                 <div>
                                     <h4>Name</h4>
-                                    <p className="caption">Let's continue working with the features that need some extra
-                                        work and take a look at the 'Name' feature
+                                    <p>Let's continue working with the features that need some extra
+                                    work and take a look at the 'Name' feature
                                         next.</p>
                                 </div>
                             </div>
@@ -2619,9 +2598,9 @@ train.head()`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['Name'].describe()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['Name'].describe()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -2631,13 +2610,13 @@ train.head()`}
                                     <div className="output">
                                         <div>Out [38]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`count                      889
+                                            <pre><code className="language-bash">
+                                                {`count                      889
 unique                     889
 top       Naidenoff, Mr. Penko
 freq                         1
 Name: Name, dtype: object`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -2649,9 +2628,9 @@ Name: Name, dtype: object`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['Name'].value_counts()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['Name'].value_counts()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -2661,8 +2640,8 @@ Name: Name, dtype: object`}
                                     <div className="output">
                                         <div>Out [39]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`Naidenoff, Mr. Penko                           1
+                                            <pre><code className="language-bash">
+                                                {`Naidenoff, Mr. Penko                           1
 Lester, Mr. James                              1
 Lemore, Mrs. (Amelia Milley)                   1
 Emanuel, Miss. Virginia Ethel                  1
@@ -2674,7 +2653,7 @@ Newell, Miss. Marjorie                         1
 Jussila, Mr. Eiriik                            1
 Vande Velde, Mr. Johannes Joseph               1
 Name: Name, Length: 889, dtype: int64`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -2686,9 +2665,9 @@ Name: Name, Length: 889, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`sns.barplot(x='Name', y='Survived', data=train)`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`sns.barplot(x='Name', y='Survived', data=train)`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -2698,9 +2677,9 @@ Name: Name, Length: 889, dtype: int64`}
                                     <div className="output">
                                         <div>Out [40]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`<matplotlib.axes._subplots.AxesSubplot at 0x12da9aeb8>`}
-</code></pre>
+                                            <pre><code className="language-bash">
+                                                {`<matplotlib.axes._subplots.AxesSubplot at 0x12da9aeb8>`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                     <div>
@@ -2714,10 +2693,10 @@ Name: Name, Length: 889, dtype: int64`}
                         <div>
                             <div>
                                 <div>
-                                    <p className="caption">Given that every name in our dataset is unique it's tempting to
-                                        conclude that we should just drop this
-                                        feature from our dataset, however it looks like every name includes a title.
-                                        Let's see what the data looks
+                                    <p>Given that every name in our dataset is unique it's tempting to
+                                    conclude that we should just drop this
+                                    feature from our dataset, however it looks like every name includes a title.
+                                    Let's see what the data looks
                                         like if we isolate that substring and create a new feature called 'Title'.</p>
                                 </div>
                             </div>
@@ -2728,13 +2707,13 @@ Name: Name, Length: 889, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`# create a new 'Title' column in our dataframe using regex to extract the title from the 'Name' column
+                                            <pre><code className="language-python">
+                                                {`# create a new 'Title' column in our dataframe using regex to extract the title from the 'Name' column
 train['Title'] = train.Name.str.extract('([A-Za-z]+)\.', expand=False).str.lower()
 
 # preview the updated dataframe
 train.head()`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -2859,9 +2838,9 @@ train.head()`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['Title'].describe()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['Title'].describe()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -2871,13 +2850,13 @@ train.head()`}
                                     <div className="output">
                                         <div>Out [42]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`count     889
+                                            <pre><code className="language-bash">
+                                                {`count     889
 unique     17
 top        mr
 freq      517
 Name: Title, dtype: object`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -2889,9 +2868,9 @@ Name: Title, dtype: object`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['Title'].value_counts()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['Title'].value_counts()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -2901,8 +2880,8 @@ Name: Title, dtype: object`}
                                     <div className="output">
                                         <div>Out [43]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`mr          517
+                                            <pre><code className="language-bash">
+                                                {`mr          517
 miss        181
 mrs         124
 master       40
@@ -2920,7 +2899,7 @@ lady          1
 don           1
 ms            1
 Name: Title, dtype: int64`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -2932,9 +2911,9 @@ Name: Title, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`sns.barplot(x='Title', y='Survived', data=train)`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`sns.barplot(x='Title', y='Survived', data=train)`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -2944,9 +2923,9 @@ Name: Title, dtype: int64`}
                                     <div className="output">
                                         <div>Out [44]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`<matplotlib.axes._subplots.AxesSubplot at 0x12dba8c18>`}
-</code></pre>
+                                            <pre><code className="language-bash">
+                                                {`<matplotlib.axes._subplots.AxesSubplot at 0x12dba8c18>`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                     <div>
@@ -2960,8 +2939,8 @@ Name: Title, dtype: int64`}
                         <div>
                             <div>
                                 <div>
-                                    <p className="caption">This is looking much better, but since 'Mr', 'Miss', 'Mrs' and
-                                        'Master' comprise a majority of the values
+                                    <p>This is looking much better, but since 'Mr', 'Miss', 'Mrs' and
+                                    'Master' comprise a majority of the values
                                         in this feature we can reduce the others into an 'Other' category.</p>
                                 </div>
                             </div>
@@ -2972,13 +2951,13 @@ Name: Title, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`# replace values if matched with a value in a list of defined values to be replaced
+                                            <pre><code className="language-python">
+                                                {`# replace values if matched with a value in a list of defined values to be replaced
 train['Title'] = train['Title'].replace(['dr', 'rev', 'mlle', 'major', 'col', 'don', 'lady', 'sir', 'capt', 'ms', 'jonkheer', 'mme', 'countess'], 'other')
 
 # count the unique values
 train['Title'].value_counts()`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -2988,14 +2967,14 @@ train['Title'].value_counts()`}
                                     <div className="output">
                                         <div>Out [45]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`mr        517
+                                            <pre><code className="language-bash">
+                                                {`mr        517
 miss      181
 mrs       124
 master     40
 other      27
 Name: Title, dtype: int64`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -3007,9 +2986,9 @@ Name: Title, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`sns.barplot(x='Title', y='Survived', data=train)`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`sns.barplot(x='Title', y='Survived', data=train)`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -3019,9 +2998,9 @@ Name: Title, dtype: int64`}
                                     <div className="output">
                                         <div>Out [46]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`<matplotlib.axes._subplots.AxesSubplot at 0x12fa81710>`}
-</code></pre>
+                                            <pre><code className="language-bash">
+                                                {`<matplotlib.axes._subplots.AxesSubplot at 0x12fa81710>`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                     <div>
@@ -3035,7 +3014,7 @@ Name: Title, dtype: int64`}
                         <div>
                             <div>
                                 <div>
-                                    <p className="caption">This looks much better. We can now drop the existing 'Name'
+                                    <p>This looks much better. We can now drop the existing 'Name'
                                         feature from our dataset.</p>
                                 </div>
                             </div>
@@ -3046,13 +3025,13 @@ Name: Title, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`# drop the 'Name' column from the dataframe
+                                            <pre><code className="language-python">
+                                                {`# drop the 'Name' column from the dataframe
 train = train.drop(columns=['Name'])
 
 # preview the updated dataframe
 train.head()`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -3169,8 +3148,8 @@ train.head()`}
                             <div>
                                 <div>
                                     <h4>SibSp and Parch</h4>
-                                    <p className="caption">We still have two more features that we'll need to manipulate.
-                                        We'll look at the 'SibSp' and 'Parch'
+                                    <p>We still have two more features that we'll need to manipulate.
+                                    We'll look at the 'SibSp' and 'Parch'
                                         features next.</p>
                                 </div>
                             </div>
@@ -3181,9 +3160,9 @@ train.head()`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['SibSp'].describe()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['SibSp'].describe()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -3193,8 +3172,8 @@ train.head()`}
                                     <div className="output">
                                         <div>Out [48]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`count    889.000000
+                                            <pre><code className="language-bash">
+                                                {`count    889.000000
 mean       0.524184
 std        1.103705
 min        0.000000
@@ -3203,7 +3182,7 @@ min        0.000000
 75%        1.000000
 max        8.000000
 Name: SibSp, dtype: float64`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -3215,9 +3194,9 @@ Name: SibSp, dtype: float64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['SibSp'].value_counts()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['SibSp'].value_counts()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -3227,8 +3206,8 @@ Name: SibSp, dtype: float64`}
                                     <div className="output">
                                         <div>Out [49]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`0    606
+                                            <pre><code className="language-bash">
+                                                {`0    606
 1    209
 2     28
 4     18
@@ -3236,7 +3215,7 @@ Name: SibSp, dtype: float64`}
 8      7
 5      5
 Name: SibSp, dtype: int64`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -3248,9 +3227,9 @@ Name: SibSp, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`sns.barplot(x='SibSp', y='Survived', data=train)`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`sns.barplot(x='SibSp', y='Survived', data=train)`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -3260,9 +3239,9 @@ Name: SibSp, dtype: int64`}
                                     <div className="output">
                                         <div>Out [50]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`<matplotlib.axes._subplots.AxesSubplot at 0x12faef1d0>`}
-</code></pre>
+                                            <pre><code className="language-bash">
+                                                {`<matplotlib.axes._subplots.AxesSubplot at 0x12faef1d0>`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                     <div>
@@ -3279,9 +3258,9 @@ Name: SibSp, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['Parch'].describe()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['Parch'].describe()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -3291,8 +3270,8 @@ Name: SibSp, dtype: int64`}
                                     <div className="output">
                                         <div>Out [51]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`count    889.000000
+                                            <pre><code className="language-bash">
+                                                {`count    889.000000
 mean       0.382452
 std        0.806761
 min        0.000000
@@ -3301,7 +3280,7 @@ min        0.000000
 75%        0.000000
 max        6.000000
 Name: Parch, dtype: float64`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -3313,9 +3292,9 @@ Name: Parch, dtype: float64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['Parch'].value_counts()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['Parch'].value_counts()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -3325,8 +3304,8 @@ Name: Parch, dtype: float64`}
                                     <div className="output">
                                         <div>Out [52]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`0    676
+                                            <pre><code className="language-bash">
+                                                {`0    676
 1    118
 2     80
 5      5
@@ -3334,7 +3313,7 @@ Name: Parch, dtype: float64`}
 4      4
 6      1
 Name: Parch, dtype: int64`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -3346,9 +3325,9 @@ Name: Parch, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`sns.barplot(x='Parch', y='Survived', data=train)`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`sns.barplot(x='Parch', y='Survived', data=train)`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -3358,9 +3337,9 @@ Name: Parch, dtype: int64`}
                                     <div className="output">
                                         <div>Out [53]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`<matplotlib.axes._subplots.AxesSubplot at 0x12fb0c0b8>`}
-</code></pre>
+                                            <pre><code className="language-bash">
+                                                {`<matplotlib.axes._subplots.AxesSubplot at 0x12fb0c0b8>`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                     <div>
@@ -3374,15 +3353,15 @@ Name: Parch, dtype: int64`}
                         <div>
                             <div>
                                 <div>
-                                    <p className="caption">At first glance these features seem like they would work without
-                                        adjustment at this time, but I already
-                                        know that I'll want to simplify the corresponding form in our web app to ask a
-                                        question like "are you
-                                        traveling with any children?" as opposed to "how many children are you traveling
-                                        with?" (i.e. Reduce this
+                                    <p>At first glance these features seem like they would work without
+                                    adjustment at this time, but I already
+                                    know that I'll want to simplify the corresponding form in our web app to ask a
+                                    question like "are you
+                                    traveling with any children?" as opposed to "how many children are you traveling
+                                    with?" (i.e. Reduce this
                                         to a binary true / false question.)</p>
-                                    <p className="caption">Let's create two new features that indicate whether or not a
-                                        passenger is traveling with 1 or more
+                                    <p>Let's create two new features that indicate whether or not a
+                                    passenger is traveling with 1 or more
                                         siblings / spouse and 1 or more children / parents.</p>
                                 </div>
                             </div>
@@ -3393,8 +3372,8 @@ Name: Parch, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`# reduce the 'SibSp' feature to 1 or 0
+                                            <pre><code className="language-python">
+                                                {`# reduce the 'SibSp' feature to 1 or 0
 def sibsp(row):
 if row['SibSp'] == 0:
     val = 0
@@ -3409,7 +3388,7 @@ if row['Parch'] == 0:
 else:
     val = 1
 return val`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -3421,12 +3400,12 @@ return val`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`# apply a function along an axis of a DataFrame
+                                            <pre><code className="language-python">
+                                                {`# apply a function along an axis of a DataFrame
 train['SiblingSpouse'] = train.apply(sibsp, axis=1)
 train['ParentChild'] = train.apply(parch, axis=1)
 train.head(10)`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -3631,9 +3610,9 @@ train.head(10)`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['SiblingSpouse'].describe()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['SiblingSpouse'].describe()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -3643,8 +3622,8 @@ train.head(10)`}
                                     <div className="output">
                                         <div>Out [56]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`count    889.000000
+                                            <pre><code className="language-bash">
+                                                {`count    889.000000
 mean       0.318335
 std        0.466093
 min        0.000000
@@ -3653,7 +3632,7 @@ min        0.000000
 75%        1.000000
 max        1.000000
 Name: SiblingSpouse, dtype: float64`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -3665,9 +3644,9 @@ Name: SiblingSpouse, dtype: float64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['SiblingSpouse'].value_counts()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['SiblingSpouse'].value_counts()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -3677,11 +3656,11 @@ Name: SiblingSpouse, dtype: float64`}
                                     <div className="output">
                                         <div>Out [57]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`0    606
+                                            <pre><code className="language-bash">
+                                                {`0    606
 1    283
 Name: SiblingSpouse, dtype: int64`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -3693,9 +3672,9 @@ Name: SiblingSpouse, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`sns.barplot(x='SiblingSpouse', y='Survived', data=train)`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`sns.barplot(x='SiblingSpouse', y='Survived', data=train)`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -3705,9 +3684,9 @@ Name: SiblingSpouse, dtype: int64`}
                                     <div className="output">
                                         <div>Out [58]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`<matplotlib.axes._subplots.AxesSubplot at 0x12fe4d9e8>`}
-</code></pre>
+                                            <pre><code className="language-bash">
+                                                {`<matplotlib.axes._subplots.AxesSubplot at 0x12fe4d9e8>`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                     <div>
@@ -3724,9 +3703,9 @@ Name: SiblingSpouse, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['ParentChild'].describe()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['ParentChild'].describe()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -3736,8 +3715,8 @@ Name: SiblingSpouse, dtype: int64`}
                                     <div className="output">
                                         <div>Out [59]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`count    889.000000
+                                            <pre><code className="language-bash">
+                                                {`count    889.000000
 mean       0.239595
 std        0.427077
 min        0.000000
@@ -3746,7 +3725,7 @@ min        0.000000
 75%        0.000000
 max        1.000000
 Name: ParentChild, dtype: float64`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -3758,9 +3737,9 @@ Name: ParentChild, dtype: float64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['ParentChild'].value_counts()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['ParentChild'].value_counts()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -3770,11 +3749,11 @@ Name: ParentChild, dtype: float64`}
                                     <div className="output">
                                         <div>Out [60]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`0    676
+                                            <pre><code className="language-bash">
+                                                {`0    676
 1    213
 Name: ParentChild, dtype: int64`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -3786,9 +3765,9 @@ Name: ParentChild, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`sns.barplot(x='ParentChild', y='Survived', data=train)`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`sns.barplot(x='ParentChild', y='Survived', data=train)`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -3798,9 +3777,9 @@ Name: ParentChild, dtype: int64`}
                                     <div className="output">
                                         <div>Out [61]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`<matplotlib.axes._subplots.AxesSubplot at 0x12fec9550>`}
-</code></pre>
+                                            <pre><code className="language-bash">
+                                                {`<matplotlib.axes._subplots.AxesSubplot at 0x12fec9550>`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                     <div>
@@ -3814,8 +3793,8 @@ Name: ParentChild, dtype: int64`}
                         <div>
                             <div>
                                 <div>
-                                    <p className="caption">This looks great and the correlation between traveling with
-                                        someone and survival is clear. Let's drop the
+                                    <p>This looks great and the correlation between traveling with
+                                    someone and survival is clear. Let's drop the
                                         existing 'SibSp' and 'Parch' features from our dataset.</p>
                                 </div>
                             </div>
@@ -3826,13 +3805,13 @@ Name: ParentChild, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`# drop the 'SibSp' and 'Parch' columns from the dataframe
+                                            <pre><code className="language-python">
+                                                {`# drop the 'SibSp' and 'Parch' columns from the dataframe
 train = train.drop(columns=['SibSp', 'Parch'])
 
 # preview the updated dataframe
 train.head()`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -3943,8 +3922,8 @@ train.head()`}
                             <div>
                                 <div>
                                     <h4>Sex and Pclass</h4>
-                                    <p className="caption">Now that we've finished working with the features that needed
-                                        some extra effort let's move on to the
+                                    <p>Now that we've finished working with the features that needed
+                                    some extra effort let's move on to the
                                         'Sex' and 'Pclass fetures.</p>
                                 </div>
                             </div>
@@ -3955,9 +3934,9 @@ train.head()`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['Sex'].describe()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['Sex'].describe()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -3967,13 +3946,13 @@ train.head()`}
                                     <div className="output">
                                         <div>Out [63]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`count      889
+                                            <pre><code className="language-bash">
+                                                {`count      889
 unique       2
 top       male
 freq       577
 Name: Sex, dtype: object`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -3985,9 +3964,9 @@ Name: Sex, dtype: object`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['Sex'].value_counts()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['Sex'].value_counts()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -3997,11 +3976,11 @@ Name: Sex, dtype: object`}
                                     <div className="output">
                                         <div>Out [64]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`male      577
+                                            <pre><code className="language-bash">
+                                                {`male      577
 female    312
 Name: Sex, dtype: int64`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -4013,9 +3992,9 @@ Name: Sex, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`sns.barplot(x='Sex', y='Survived', data=train)`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`sns.barplot(x='Sex', y='Survived', data=train)`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -4025,9 +4004,9 @@ Name: Sex, dtype: int64`}
                                     <div className="output">
                                         <div>Out [65]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`<matplotlib.axes._subplots.AxesSubplot at 0x12ff7e470>`}
-</code></pre>
+                                            <pre><code className="language-bash">
+                                                {`<matplotlib.axes._subplots.AxesSubplot at 0x12ff7e470>`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                     <div>
@@ -4044,9 +4023,9 @@ Name: Sex, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['Pclass'].describe()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['Pclass'].describe()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -4056,8 +4035,8 @@ Name: Sex, dtype: int64`}
                                     <div className="output">
                                         <div>Out [66]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`count    889.000000
+                                            <pre><code className="language-bash">
+                                                {`count    889.000000
 mean       2.311586
 std        0.834700
 min        1.000000
@@ -4066,7 +4045,7 @@ min        1.000000
 75%        3.000000
 max        3.000000
 Name: Pclass, dtype: float64`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -4078,9 +4057,9 @@ Name: Pclass, dtype: float64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['Pclass'].value_counts()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['Pclass'].value_counts()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -4090,12 +4069,12 @@ Name: Pclass, dtype: float64`}
                                     <div className="output">
                                         <div>Out [67]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`3    491
+                                            <pre><code className="language-bash">
+                                                {`3    491
 1    214
 2    184
 Name: Pclass, dtype: int64`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -4107,9 +4086,9 @@ Name: Pclass, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`sns.barplot(x='Pclass', y='Survived', data=train)`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`sns.barplot(x='Pclass', y='Survived', data=train)`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -4119,9 +4098,9 @@ Name: Pclass, dtype: int64`}
                                     <div className="output">
                                         <div>Out [68]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`<matplotlib.axes._subplots.AxesSubplot at 0x12fb1b358>`}
-</code></pre>
+                                            <pre><code className="language-bash">
+                                                {`<matplotlib.axes._subplots.AxesSubplot at 0x12fb1b358>`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                     <div>
@@ -4135,8 +4114,8 @@ Name: Pclass, dtype: int64`}
                         <div>
                             <div>
                                 <div>
-                                    <p className="caption">These features look great as-is. We don't need to do anything
-                                        else with them at this time. Let's move on
+                                    <p>These features look great as-is. We don't need to do anything
+                                    else with them at this time. Let's move on
                                         to our final two features.</p>
                                 </div>
                             </div>
@@ -4154,9 +4133,9 @@ Name: Pclass, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['Ticket'].describe()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['Ticket'].describe()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -4166,13 +4145,13 @@ Name: Pclass, dtype: int64`}
                                     <div className="output">
                                         <div>Out [69]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`count          889
+                                            <pre><code className="language-bash">
+                                                {`count          889
 unique         680
 top       CA. 2343
 freq             7
 Name: Ticket, dtype: object`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -4184,9 +4163,9 @@ Name: Ticket, dtype: object`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['Ticket'].value_counts()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['Ticket'].value_counts()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -4196,8 +4175,8 @@ Name: Ticket, dtype: object`}
                                     <div className="output">
                                         <div>Out [70]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`CA. 2343      7
+                                            <pre><code className="language-bash">
+                                                {`CA. 2343      7
 1601          7
 347082        7
 3101295       6
@@ -4209,7 +4188,7 @@ CA. 2314      1
 113509        1
 C.A. 24579    1
 Name: Ticket, Length: 680, dtype: int64`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -4221,9 +4200,9 @@ Name: Ticket, Length: 680, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`sns.barplot(x='Ticket', y='Survived', data=train)`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`sns.barplot(x='Ticket', y='Survived', data=train)`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -4233,9 +4212,9 @@ Name: Ticket, Length: 680, dtype: int64`}
                                     <div className="output">
                                         <div>Out [71]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`<matplotlib.axes._subplots.AxesSubplot at 0x130131278>`}
-</code></pre>
+                                            <pre><code className="language-bash">
+                                                {`<matplotlib.axes._subplots.AxesSubplot at 0x130131278>`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                     <div>
@@ -4249,10 +4228,10 @@ Name: Ticket, Length: 680, dtype: int64`}
                         <div>
                             <div>
                                 <div>
-                                    <p className="caption">Looks like a familiar problem we've seen before. Out of 889
-                                        records there are 680 unique values. After
-                                        reviewing the dataset one more time I'm not seeing any meaningful pattern in the
-                                        values used for the
+                                    <p>Looks like a familiar problem we've seen before. Out of 889
+                                    records there are 680 unique values. After
+                                    reviewing the dataset one more time I'm not seeing any meaningful pattern in the
+                                    values used for the
                                         'Ticket' feature. Given these limitations we will drop this column.</p>
                                 </div>
                             </div>
@@ -4263,13 +4242,13 @@ Name: Ticket, Length: 680, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`# drop the 'Ticket' column from the dataframe
+                                            <pre><code className="language-python">
+                                                {`# drop the 'Ticket' column from the dataframe
 train = train.drop(columns=['Ticket'])
 
 # preview the updated dataframe
 train.head()`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -4382,9 +4361,9 @@ train.head()`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['PassengerId'].describe()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['PassengerId'].describe()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -4394,8 +4373,8 @@ train.head()`}
                                     <div className="output">
                                         <div>Out [73]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`count    889.000000
+                                            <pre><code className="language-bash">
+                                                {`count    889.000000
 mean     446.000000
 std      256.998173
 min        1.000000
@@ -4404,7 +4383,7 @@ min        1.000000
 75%      668.000000
 max      891.000000
 Name: PassengerId, dtype: float64`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -4416,9 +4395,9 @@ Name: PassengerId, dtype: float64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`train['PassengerId'].value_counts()`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`train['PassengerId'].value_counts()`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -4428,8 +4407,8 @@ Name: PassengerId, dtype: float64`}
                                     <div className="output">
                                         <div>Out [74]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`891    1
+                                            <pre><code className="language-bash">
+                                                {`891    1
 293    1
 304    1
 303    1
@@ -4441,7 +4420,7 @@ Name: PassengerId, dtype: float64`}
 587    1
 1      1
 Name: PassengerId, Length: 889, dtype: int64`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -4453,9 +4432,9 @@ Name: PassengerId, Length: 889, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`sns.barplot(x='PassengerId', y='Survived', data=train)`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`sns.barplot(x='PassengerId', y='Survived', data=train)`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -4465,9 +4444,9 @@ Name: PassengerId, Length: 889, dtype: int64`}
                                     <div className="output">
                                         <div>Out [75]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`<matplotlib.axes._subplots.AxesSubplot at 0x131518588>`}
-</code></pre>
+                                            <pre><code className="language-bash">
+                                                {`<matplotlib.axes._subplots.AxesSubplot at 0x131518588>`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                     <div>
@@ -4481,7 +4460,7 @@ Name: PassengerId, Length: 889, dtype: int64`}
                         <div>
                             <div>
                                 <div>
-                                    <p className="caption">We can drop the 'PassengerId' feature as it is irrelevant to our
+                                    <p>We can drop the 'PassengerId' feature as it is irrelevant to our
                                         target variable 'survival'.</p>
                                 </div>
                             </div>
@@ -4492,13 +4471,13 @@ Name: PassengerId, Length: 889, dtype: int64`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`# drop the 'PassengerId' column from the dataframe
+                                            <pre><code className="language-python">
+                                                {`# drop the 'PassengerId' column from the dataframe
 train = train.drop(columns=['PassengerId'])
 
 # preview the updated dataframe
 train.head()`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -4602,8 +4581,8 @@ train.head()`}
                         <div>
                             <div>
                                 <div>
-                                    <p className="caption">After exploring our data and engineering some new features we're
-                                        ready to move on and preprocess our
+                                    <p>After exploring our data and engineering some new features we're
+                                    ready to move on and preprocess our
                                         data.</p>
                                 </div>
                             </div>
@@ -4612,7 +4591,7 @@ train.head()`}
                             <div>
                                 <div>
                                     <h2>Data preprocessing</h2>
-                                    <p className="caption">Before doing anything else, let's pause to summarize our updated
+                                    <p>Before doing anything else, let's pause to summarize our updated
                                         dataset.</p>
                                 </div>
                             </div>
@@ -4623,8 +4602,8 @@ train.head()`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`# print a summary of the dataframe
+                                            <pre><code className="language-python">
+                                                {`# print a summary of the dataframe
 train.info()`}</code></pre>
                                         </div>
                                     </div>
@@ -4634,8 +4613,8 @@ train.info()`}</code></pre>
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`<class 'pandas.core.frame.DataFrame'>
+                                            <pre><code className="language-python">
+                                                {`<class 'pandas.core.frame.DataFrame'>
 Int64Index: 889 entries, 0 to 890
 Data columns (total 10 columns):
 Survived          889 non-null int64
@@ -4650,7 +4629,7 @@ SiblingSpouse     889 non-null int64
 ParentChild       889 non-null int64
 dtypes: category(2), int64(4), object(4)
 memory usage: 105.0+ KB`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -4659,34 +4638,34 @@ memory usage: 105.0+ KB`}
                         <div>
                             <div>
                                 <div>
-                                    <p className="caption">The dataset has <strong>889 examples</strong> (2 fewer than
+                                    <p>The dataset has <strong>889 examples</strong> (2 fewer than
                                         before after we dropped the rows with missing
                                         'Embarked' values) and <strong>9 features</strong> plus the <strong>1 target
                                             variable</strong>,
                                         'Survived'.</p>
-                                    <p className="caption">4 of the features are integers<br />
+                                    <p>4 of the features are integers<br />
                                         4 of the features are objects<br />
                                         2 of the features are categories</p>
-                                    <p className="caption">Before we feed the dataset into our machine learning models we
-                                        need to transform categorical values into
+                                    <p>Before we feed the dataset into our machine learning models we
+                                    need to transform categorical values into
                                         numerical values because many models do not work with textual values.</p>
-                                    <p className="caption">There are a number of strategies to handle categorical features.
-                                        We're going to use the "one hot
+                                    <p>There are a number of strategies to handle categorical features.
+                                    We're going to use the "one hot
                                         encoding" method which will accomplish two things for us:</p>
-                                    <p className="caption">1) Transfrom the dataset's textual values into numerical
+                                    <p>1) Transfrom the dataset's textual values into numerical
                                         values<br />
                                         2) Ensure the transformed values are equally important</p>
-                                    <p className="caption">In some cases, when textual values are encoded to numerical
-                                        values, some values will be greater than the
-                                        other values. This can imply that those values are of higher importance than the
-                                        others, which can result
+                                    <p>In some cases, when textual values are encoded to numerical
+                                    values, some values will be greater than the
+                                    other values. This can imply that those values are of higher importance than the
+                                    others, which can result
                                         in inacurate predictions.</p>
-                                    <p className="caption">The one hot encoding technique essentially creates a "dummy"
-                                        feature for each distinct value in a
-                                        categorical feature. Once the dummy values are created a boolean value (0 or 1)
-                                        is populated to indicate
+                                    <p>The one hot encoding technique essentially creates a "dummy"
+                                    feature for each distinct value in a
+                                    categorical feature. Once the dummy values are created a boolean value (0 or 1)
+                                    is populated to indicate
                                         whether the value is true or false for the feature.</p>
-                                    <p className="caption">The pandas library has a built-in function called get_dummies()
+                                    <p>The pandas library has a built-in function called get_dummies()
                                         that does exactly this.</p>
                                 </div>
                             </div>
@@ -4697,8 +4676,8 @@ memory usage: 105.0+ KB`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`# rename column headers
+                                            <pre><code className="language-python">
+                                                {`# rename column headers
 train = train.rename(columns={
     'Survived': 'survived',
     'Pclass': 'passenger_class',
@@ -4720,7 +4699,7 @@ train = train.astype(int)
 
 # preview the updated dataframe
 train.head()`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -4875,7 +4854,7 @@ train.head()`}
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                                <p className="caption">5 rows × 41 columns</p>
+                                                <p>5 rows × 41 columns</p>
                                             </div>
                                         </div>
                                     </div>
@@ -4885,7 +4864,7 @@ train.head()`}
                         <div>
                             <div>
                                 <div>
-                                    <p className="caption">Let's pause one last time to summarize our dataset to see what it
+                                    <p>Let's pause one last time to summarize our dataset to see what it
                                         looks like before moving on.</p>
                                 </div>
                             </div>
@@ -4896,10 +4875,10 @@ train.head()`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`# print a summary of the dataframe
+                                            <pre><code className="language-python">
+                                                {`# print a summary of the dataframe
 train.info()`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -4908,8 +4887,8 @@ train.info()`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`<class 'pandas.core.frame.DataFrame'>
+                                            <pre><code className="language-python">
+                                                {`<class 'pandas.core.frame.DataFrame'>
 Int64Index: 889 entries, 0 to 890
 Data columns (total 41 columns):
 survived                      889 non-null int64
@@ -4955,7 +4934,7 @@ title_mrs                     889 non-null int64
 title_other                   889 non-null int64
 dtypes: int64(41)
 memory usage: 291.7 KB`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -4964,11 +4943,11 @@ memory usage: 291.7 KB`}
                         <div>
                             <div>
                                 <div>
-                                    <p className="caption">We still have <strong>889 examples</strong>, all integers, but
+                                    <p>We still have <strong>889 examples</strong>, all integers, but
                                         after one hot encoding our dataset we now
                                         have <strong>40 features</strong> plus the <strong>1 target variable</strong>
                                         'Survived'.</p>
-                                    <p className="caption">Out dataset is now ready to be used in our machine learning
+                                    <p>Out dataset is now ready to be used in our machine learning
                                         models.</p>
                                 </div>
                             </div>
@@ -4987,8 +4966,8 @@ memory usage: 291.7 KB`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`feature_set = [
+                                            <pre><code className="language-python">
+                                                {`feature_set = [
     'passenger_class_1',
     'passenger_class_2',
     'passenger_class_3',
@@ -5035,7 +5014,7 @@ X = train[feature_set]
 y = train['survived']
 
 train_X, test_X, train_y, test_y = train_test_split(X, y, random_state=0)`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -5054,14 +5033,14 @@ train_X, test_X, train_y, test_y = train_test_split(X, y, random_state=0)`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`lr = LogisticRegression()
+                                            <pre><code className="language-python">
+                                                {`lr = LogisticRegression()
 
 lr.fit(train_X, train_y)
 
 lr_predictions = lr.predict(test_X)
 lr_predictions`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -5071,8 +5050,8 @@ lr_predictions`}
                                     <div className="output">
                                         <div>Out [81]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`array([1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1,
+                                            <pre><code className="language-bash">
+                                                {`array([1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1,
        1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0,
        1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0,
        1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0,
@@ -5083,7 +5062,7 @@ lr_predictions`}
        1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0,
        0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0,
        1, 0, 1])`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -5102,14 +5081,14 @@ lr_predictions`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`sgd = SGDClassifier(max_iter=5, tol=None)
+                                            <pre><code className="language-python">
+                                                {`sgd = SGDClassifier(max_iter=5, tol=None)
 
 sgd.fit(train_X, train_y)
 
 sgd_predictions = sgd.predict(test_X)
 sgd_predictions`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -5119,8 +5098,8 @@ sgd_predictions`}
                                     <div className="output">
                                         <div>Out [82]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`array([1, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1,
+                                            <pre><code className="language-bash">
+                                                {`array([1, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1,
        1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1,
        1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1,
        1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0,
@@ -5131,7 +5110,7 @@ sgd_predictions`}
        1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0,
        1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1,
        1, 0, 1])`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -5150,14 +5129,14 @@ sgd_predictions`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`rf = RandomForestClassifier(n_estimators=100)
+                                            <pre><code className="language-python">
+                                                {`rf = RandomForestClassifier(n_estimators=100)
 
 rf.fit(train_X, train_y)
 
 rf_predictions = rf.predict(test_X)
 rf_predictions`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -5167,8 +5146,8 @@ rf_predictions`}
                                     <div className="output">
                                         <div>Out [83]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`array([1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1,
+                                            <pre><code className="language-bash">
+                                                {`array([1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1,
        1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0,
        1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0,
        1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0,
@@ -5179,7 +5158,7 @@ rf_predictions`}
        1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0,
        0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0,
        1, 0, 1])`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -5198,14 +5177,14 @@ rf_predictions`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`knn = KNeighborsClassifier(n_neighbors = 3)
+                                            <pre><code className="language-python">
+                                                {`knn = KNeighborsClassifier(n_neighbors = 3)
 
 knn.fit(train_X, train_y)
 
 knn_predictions = knn.predict(test_X)
 knn_predictions`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -5215,8 +5194,8 @@ knn_predictions`}
                                     <div className="output">
                                         <div>Out [84]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`array([1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1,
+                                            <pre><code className="language-bash">
+                                                {`array([1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1,
        1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0,
        1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0,
        1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0,
@@ -5227,7 +5206,7 @@ knn_predictions`}
        1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0,
        0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0,
        1, 0, 1])`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -5246,14 +5225,14 @@ knn_predictions`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`gnb = GaussianNB()
+                                            <pre><code className="language-python">
+                                                {`gnb = GaussianNB()
 
 gnb.fit(train_X, train_y)
 
 gnb_predictions = gnb.predict(test_X)
 gnb_predictions`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -5263,8 +5242,8 @@ gnb_predictions`}
                                     <div className="output">
                                         <div>Out [85]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`array([1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1,
+                                            <pre><code className="language-bash">
+                                                {`array([1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1,
        1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0,
        1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0,
        1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0,
@@ -5275,7 +5254,7 @@ gnb_predictions`}
        1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0,
        0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1,
        1, 0, 1])`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -5294,14 +5273,14 @@ gnb_predictions`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`perceptron = Perceptron(max_iter=10)
+                                            <pre><code className="language-python">
+                                                {`perceptron = Perceptron(max_iter=10)
 
 perceptron.fit(train_X, train_y)
 
 perceptron_predictions = perceptron.predict(test_X)
 perceptron_predictions`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -5311,8 +5290,8 @@ perceptron_predictions`}
                                     <div className="output">
                                         <div>Out [86]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`array([1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1,
+                                            <pre><code className="language-bash">
+                                                {`array([1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1,
        1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1,
        1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1,
        1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0,
@@ -5323,7 +5302,7 @@ perceptron_predictions`}
        1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0,
        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
        1, 1, 1])`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -5342,14 +5321,14 @@ perceptron_predictions`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`linear_svc = LinearSVC()
+                                            <pre><code className="language-python">
+                                                {`linear_svc = LinearSVC()
 
 linear_svc.fit(train_X, train_y)
 
 linear_svc_predictions = linear_svc.predict(test_X)
 linear_svc_predictions`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -5359,8 +5338,8 @@ linear_svc_predictions`}
                                     <div className="output">
                                         <div>Out [87]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`array([1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1,
+                                            <pre><code className="language-bash">
+                                                {`array([1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1,
        1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0,
        1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0,
        1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0,
@@ -5371,7 +5350,7 @@ linear_svc_predictions`}
        1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0,
        0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0,
        1, 0, 1])`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -5390,14 +5369,14 @@ linear_svc_predictions`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`dt = DecisionTreeClassifier()
+                                            <pre><code className="language-python">
+                                                {`dt = DecisionTreeClassifier()
 
 dt.fit(train_X, train_y)
 
 dt_predictions = dt.predict(test_X)
 dt_predictions`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -5407,8 +5386,8 @@ dt_predictions`}
                                     <div className="output">
                                         <div>Out [88]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`array([1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1,
+                                            <pre><code className="language-bash">
+                                                {`array([1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1,
        1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0,
        1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0,
        1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0,
@@ -5419,7 +5398,7 @@ dt_predictions`}
        0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0,
        0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0,
        1, 0, 1])`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -5438,8 +5417,8 @@ dt_predictions`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`# Logistic Regression
+                                            <pre><code className="language-python">
+                                                {`# Logistic Regression
 lr_accuracy = accuracy_score(test_y, lr_predictions)
 
 # Stochastic Gradient Descent (SGD)
@@ -5488,7 +5467,7 @@ result_df = results.sort_values(by='Score', ascending=False)
 
 # preview the dataframe
 result_df.head(8)`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -5550,8 +5529,8 @@ result_df.head(8)`}
                         <div>
                             <div>
                                 <div>
-                                    <p className="caption">The Random Forest Classifier model scored best. Let's use K-Fold
-                                        Cross Validation to randomly split the
+                                    <p>The Random Forest Classifier model scored best. Let's use K-Fold
+                                    Cross Validation to randomly split the
                                         training data into <em>K</em> subsets (i.e. folds). This retruns a list of
                                         length <em>K</em> which we can
                                         use to calculate the mean (the central tendency of a given set of numbers) and
@@ -5573,15 +5552,15 @@ result_df.head(8)`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`# evaluate a score by cross-validation
+                                            <pre><code className="language-python">
+                                                {`# evaluate a score by cross-validation
 cross_validation = cross_val_score(rf, train_X, train_y, cv=10, scoring='accuracy')
 
 # print the resulting list, calculated mean and calculated standard deviation
 print('Cross Vzlidation:', cross_validation)
 print('Mean: %', round(cross_validation.mean() * 100, 2))
 print('Standard Deviation: %', round(cross_validation.std() * 100, 2))`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -5590,12 +5569,12 @@ print('Standard Deviation: %', round(cross_validation.std() * 100, 2))`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`Cross Vzlidation: [0.7761194  0.7761194  0.89552239 0.82089552 0.79104478 0.85074627
+                                            <pre><code className="language-python">
+                                                {`Cross Vzlidation: [0.7761194  0.7761194  0.89552239 0.82089552 0.79104478 0.85074627
 0.70149254 0.78787879 0.87878788 0.81538462]
 Mean: % 80.94
 Standard Deviation: % 5.36`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -5604,13 +5583,13 @@ Standard Deviation: % 5.36`}
                         <div>
                             <div>
                                 <div>
-                                    <p className="caption">Not much of an improvement in accuracy, but we have verified that
+                                    <p>Not much of an improvement in accuracy, but we have verified that
                                         the model's perfomance.</p>
-                                    <p className="caption">There are numerours other things we could do to try an improve
-                                        the model's performance and accuracy, but what we have is a working model that's
-                                        been trained, so let's call this
+                                    <p>There are numerours other things we could do to try an improve
+                                    the model's performance and accuracy, but what we have is a working model that's
+                                    been trained, so let's call this
                                         good enough for now and move on.</p>
-                                    <p className="caption">Our final task is to serialize the model so it can be used by
+                                    <p>Our final task is to serialize the model so it can be used by
                                         our web app to make predictions.</p>
                                 </div>
                             </div>
@@ -5635,11 +5614,11 @@ Standard Deviation: % 5.36`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`pickle_out = open('model.pickle', 'wb')
+                                            <pre><code className="language-python">
+                                                {`pickle_out = open('model.pickle', 'wb')
 pickle.dump(rf, pickle_out)
 pickle_out.close()`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -5648,7 +5627,7 @@ pickle_out.close()`}
                         <div>
                             <div>
                                 <div>
-                                    <p className="caption">That's all it takes! Our trained model has been serialized and
+                                    <p>That's all it takes! Our trained model has been serialized and
                                         can be used by our web app. Let's take a moment to review how that works.</p>
                                 </div>
                             </div>
@@ -5666,10 +5645,10 @@ pickle_out.close()`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`pickle_in = open('model.pickle', 'rb')
+                                            <pre><code className="language-python">
+                                                {`pickle_in = open('model.pickle', 'rb')
 model = pickle.load(pickle_in)`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -5688,9 +5667,9 @@ model = pickle.load(pickle_in)`}
                                 <div>
                                     <div>
                                         <div>
-<pre><code className="language-python">
-{`model.predict(test_X)`}
-</code></pre>
+                                            <pre><code className="language-python">
+                                                {`model.predict(test_X)`}
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -5700,8 +5679,8 @@ model = pickle.load(pickle_in)`}
                                     <div className="output">
                                         <div>Out [93]:</div>
                                         <div>
-<pre><code className="language-bash">
-{`array([1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1,
+                                            <pre><code className="language-bash">
+                                                {`array([1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1,
        1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0,
        1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0,
        1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0,
@@ -5712,7 +5691,7 @@ model = pickle.load(pickle_in)`}
        1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0,
        0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0,
        1, 0, 1])`}
-</code></pre>
+                                            </code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -5721,7 +5700,7 @@ model = pickle.load(pickle_in)`}
                         <div>
                             <div>
                                 <div>
-                                    <p className="caption">It works!</p>
+                                    <p>It works!</p>
                                 </div>
                             </div>
                         </div>
@@ -5729,16 +5708,16 @@ model = pickle.load(pickle_in)`}
                             <div>
                                 <div id="conclusion" className="scrollspy">
                                     <h1>Conclusion</h1>
-                                    <p className="caption">Let's close by reviewing what we've accomplished.</p>
-                                    <p className="caption">First we took a raw dataset and analyzed its contents to
+                                    <p>Let's close by reviewing what we've accomplished.</p>
+                                    <p>First we took a raw dataset and analyzed its contents to
                                         understand how its feature values are related to a target variable.<br />
                                         Next we transformed the data so that it could be used to train machine learning
                                         models.<br />
                                         Then we selected the highest performing model and serialized it so that it can
                                         be used to make predictions based on user input.</p>
-                                    <p className="caption">I hope this has been a helpful exercise that demonstrates the
+                                    <p>I hope this has been a helpful exercise that demonstrates the
                                         basics of machine learning.</p>
-                                    <p className="caption">For more information about this project you can review the
+                                    <p>For more information about this project you can review the
                                         repository on my <a
                                             href="https://github.com/NicChappell/titanic-dataset">github</a>.</p>
                                 </div>
@@ -5746,7 +5725,7 @@ model = pickle.load(pickle_in)`}
                         </div>
                     </div>
                 </div>
-        
+
             </div>
         </div>
     )
