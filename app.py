@@ -1,11 +1,11 @@
 # dependencies
-from flask import Flask, request, jsonify
+from flask import Flask, jsonify, render_template, request
 import numpy as np
 import pandas as pd
 import pickle
 
 # new flask app and configure static directory
-app = Flask(__name__, static_folder='./client/build', static_url_path='/')
+app = Flask(__name__)
 
 # load machine learning model
 model = pickle.load(open('./notebook/model.pickle', 'rb'))
@@ -14,7 +14,7 @@ model = pickle.load(open('./notebook/model.pickle', 'rb'))
 # routes
 @app.route('/')
 def index():
-    return app.send_static_file('index.html')
+    return render_template('index.html')
 
 
 @app.route('/api/predict', methods=['POST'])
