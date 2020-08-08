@@ -231,3 +231,6 @@ def predict():
     prediction = model.predict(user_input)
 
     return f'{prediction[0]}'
+
+if __name__ == "__main__":         
+    app.run()
