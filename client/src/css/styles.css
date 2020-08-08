@@ -1,0 +1,44 @@
+.banner {
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 420px;
+}
+
+.cutaway {
+  height: auto;
+  max-width: 600px;
+  width: 100%;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.875rem;
+}
+
+.label {
+  display: block;
+}
+
+.number {
+  font-size: 1.25rem;
+  line-height: 56px;
+}
+
+.output-table {
+  overflow: scroll;
+  width: 100%;
+}
+
+.prediction {
+  align-items: center;
+  display: flex;
+  height: auto;
+  justify-content: center;
+  min-height: 300px;
+}
+.prediction i {
+  font-size: 1000%;
+}
+
+/*# sourceMappingURL=styles.css.map */
