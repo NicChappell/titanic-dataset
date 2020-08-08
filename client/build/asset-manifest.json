@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.68a678ed.chunk.css",
+    "main.js": "/static/js/main.e13236dd.chunk.js",
+    "main.js.map": "/static/js/main.e13236dd.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.09b85ec0.js",
+    "runtime-main.js.map": "/static/js/runtime-main.09b85ec0.js.map",
+    "static/js/2.7b53c510.chunk.js": "/static/js/2.7b53c510.chunk.js",
+    "static/js/2.7b53c510.chunk.js.map": "/static/js/2.7b53c510.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.8bd95f97affd6ba2222c7de3604c871b.js": "/precache-manifest.8bd95f97affd6ba2222c7de3604c871b.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.68a678ed.chunk.css.map": "/static/css/main.68a678ed.chunk.css.map",
+    "static/js/2.7b53c510.chunk.js.LICENSE.txt": "/static/js/2.7b53c510.chunk.js.LICENSE.txt",
+    "static/media/banner.jpg": "/static/media/banner.0e448080.jpg",
+    "static/media/titanic-cutaway-diagram.png": "/static/media/titanic-cutaway-diagram.ed559aac.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.09b85ec0.js",
+    "static/js/2.7b53c510.chunk.js",
+    "static/css/main.68a678ed.chunk.css",
+    "static/js/main.e13236dd.chunk.js"
+  ]
+}
