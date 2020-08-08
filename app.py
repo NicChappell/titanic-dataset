@@ -1,14 +1,11 @@
 # dependencies
 from flask import Flask, request, jsonify
-from flask_cors import CORS
 import numpy as np
 import pandas as pd
 import pickle
 
 # new flask app and configure static directory
 app = Flask(__name__, static_folder='./client/build', static_url_path='/')
-# allow CORS for all domains
-CORS(app)
 
 # load machine learning model
 model = pickle.load(open('./notebook/model.pickle', 'rb'))
